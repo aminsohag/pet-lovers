@@ -33,12 +33,12 @@
                     <div class="navbar-start">
                         <div class="flex items-center">
                             <img class="w-30" src="images/logo.webp" alt="">
-                            <a class="text-xl md:text-3xl font-bold">Pet Lovers</a>
+                            <a class="text-xl md:text-3xl font-bold">Pet<span class="text-4xl text-[#0E7A81]">L</span>overs</a>
                         </div>
                     </div>
                     <div class="navbar-center hidden lg:flex">
                         <ul class="menu menu-horizontal px-1">
-                            <li><a class="text-lg">Home</a></li>
+                            <li><a href="/" class="text-lg">Home</a></li>
                             <li><a class="text-lg">Shop</a></li>
                             <li><a class="text-lg">Contact</a></li>
                         </ul>
@@ -54,7 +54,7 @@
                             </div>
                             <ul tabindex="0"
                                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow right-0">
-                                <li><a class="text-lg">Home</a></li>
+                                <li><a href="/" class="text-lg">Home</a></li>
                                 <li><a class="text-lg">Shop</a></li>
                                 <li><a class="text-lg">Contact</a></li>
                             </ul>
@@ -72,7 +72,8 @@
                 <p class="text-center">It is a long established fact that a reader will be distracted by the readable
                     content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
                 <div class="text-center py-4">
-                    <button class="bg-[#0E7A81] p-3 rounded-lg text-white">View More</button>
+                    <a href="#adopt-container"><button class="bg-[#0E7A81] p-3 rounded-lg text-white">View
+                            More</button></a>
                 </div>
             </div>
             <div class="flex justify-center">
@@ -83,30 +84,43 @@
     <main class="container mx-auto px-4">
         <section class="md:w-3/5 lg:w-3/6 mx-auto">
             <div class="text-center space-y-4 my-12">
-                <h2 class="text-3xl md:text-4xl font-bold">Adopt Your Best Friend</h2>
+                <h2 id="adopt-container" class="text-3xl md:text-4xl font-bold">Adopt Your Best Friend</h2>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when
                     looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
             </div>
         </section>
         <section class="my-12">
             <div class="my-12">
-                <div id="category-container" class="flex gap-4 justify-center md:justify-between">
+                <div>
+                    <div id="category-container" class="grid grid-cols-2 lg:grid-cols-4  gap-8 md:gap-12">
 
+                    </div>
                 </div>
             </div>
             <div class="flex justify-between">
                 <h3 class="text-2xl font-black">Best Deal For you</h3>
-                <button class="bg-[#0E7A81] p-3 rounded-lg text-white">Sort by Price</button>
+                <button onclick="sort()" class="bg-[#0E7A81] p-3 rounded-lg text-white">Sort by Price</button>
+            </div>
+            <div id="loader" class="my-12 hidden">
+                <div class="relative flex justify-center items-center">
+                    <div class="absolute animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-teal-700">
+                    </div>
+                    <img src="images/logo.webp" class="rounded-full">
+                </div>
             </div>
             <div class="my-12">
                 <div id="pet-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- card section -->
-                    <div class="bg-red-600 lg:col-span-3">
-                        <h1>hello</h1>
+                    <div class="md:col-span-2 lg:col-span-3">
+                        <div id="pets-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                        </div>
                     </div>
                     <!-- image section -->
-                    <div class="bg-blue-600">
-                        <h3>blue</h3>
+                    <div class="rounded-lg border h-fit">
+                        <div id="like-pet" class="grid grid-cols-2 p-2 rounded-lg gap-2">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,7 +132,7 @@
                 <div class="space-y-2">
                     <div class="flex items-center">
                         <img class="w-30" src="images/logo.webp" alt="">
-                        <a class="text-xl md:text-3xl font-bold text-white">Pet Lovers</a>
+                        <a class="text-xl md:text-3xl font-bold text-white">Pet<span class="text-4xl text-[#0E7A81]">L</span>overs</a>
                     </div>
                     <div class="text-white text-opacity-70 space-y-1">
                         <p>Location: av. Washington 165, NY CA 54003</p>
@@ -152,10 +166,36 @@
             </div>
         </section>
     </footer>
+    <!-- adopt modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box text-center space-y-3 py-8">
+            <i class="fa-solid fa-handshake text-red-400 text-2xl"></i>
+            <h2 class="text-2xl md:text-3xl font-bold ">Congratulations!</h2>
+            <p class="text-xl font-bold">Adoption will be done in</p>
+            <p id="countdown-container" class="text-5xl font-bold">3</p>
+        </div>
+    </dialog>
 
+    <!--details modal  -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_6.showModal()">open modal</button> -->
+    <dialog id="my_modal_6" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="details-container">
 
+            </div>
+            <div class="w-full text-center">
+                <form method="dialog">
+                    <button class="bg-gray-100 p-2 w-full rounded-lg">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
     <!-- js -->
-    <!-- <script src="script/script.js"></script> -->
+    <script src="script/utilities.js"></script>
+    <script src="script/script.js"></script>
 </body>
 
 </html>
